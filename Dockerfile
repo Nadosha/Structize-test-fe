@@ -1,13 +1,13 @@
 FROM node:18-alpine as base
 WORKDIR /apps/structize-assignment-fe
-ENV PATH /apps/shally-landing/node_modules/.bin:$PATH
+ENV PATH /apps/structize-assignment-fe/node_modules/.bin:$PATH
 FROM base as deps
 RUN apk add --no-cache libc6-compat
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
 FROM base as builder
-COPY --from=deps /apps/shally-landing/node_modules ./node_modules
+COPY --from=deps /apps/structize-assignment-fe/node_modules ./node_modules
 COPY . .
 RUN yarn build
 
