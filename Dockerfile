@@ -15,7 +15,7 @@ FROM base as runner
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 USER nextjs
-COPY --from=builder /apps/structize-assignment-fe/next.config.js ./
+
 COPY --from=builder --chown=nextjs:nodejs /apps/structize-assignment-fe/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /apps/structize-assignment-fe/.next/static ./.next/static
 COPY --from=builder /apps/structize-assignment-fe/public ./public
