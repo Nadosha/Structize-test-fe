@@ -66,5 +66,5 @@ jobs:
             echo "Pulling  image from ECR..."
             docker pull ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}
             cd /home/ubuntu && sed -i 's|${ECR_REGISTRY}/${ECR_REPOSITORY}:.*|${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}|' docker-compose.yml
-            cd /home/ubuntu && docker-compose up -d
+            cd /home/ubuntu && docker compose up -d
             docker system prune -af"
