@@ -1,11 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import * as process from 'process';
 
 export const fetchFlows = createAsyncThunk(
   'flows/fetchFlows',
   async (workspace: string, { rejectWithValue }) => {
     try {
       const response = await fetch(
-        `http://localhost:3030/flows?workspace=${workspace || '1'}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/flows?workspace=${workspace || '1'}`,
       );
 
       if (!response.ok) {
@@ -34,7 +35,9 @@ export const fetchOneFlow = createAsyncThunk(
       ];
     }
     try {
-      const response = await fetch(`http://localhost:3030/flows/${id}`);
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/flows/${id}`,
+      );
 
       if (!response.ok) {
         throw new Error('Failed to fetch flow');
@@ -56,13 +59,16 @@ export const updateFlow = createAsyncThunk(
     { rejectWithValue },
   ) => {
     try {
-      const response = await fetch(`http://localhost:3030/flows/${flowId}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/flows/${flowId}`,
+        {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newValues),
         },
-        body: JSON.stringify(newValues),
-      });
+      );
 
       if (!response.ok) {
         throw new Error('Failed to update flow');
@@ -81,13 +87,16 @@ export const createFlow = createAsyncThunk(
     { rejectWithValue },
   ) => {
     try {
-      const response = await fetch('http://localhost:3030/flows', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/flows`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(classInput),
         },
-        body: JSON.stringify(classInput),
-      });
+      );
       if (!response.ok) {
         throw new Error('Failed to create flow');
       }
@@ -110,13 +119,16 @@ export const createJob = createAsyncThunk(
     { rejectWithValue },
   ) => {
     try {
-      const response = await fetch('http://localhost:3030/jobs', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/jobs`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(jobInput),
         },
-        body: JSON.stringify(jobInput),
-      });
+      );
 
       if (!response.ok) {
         throw new Error('Failed to create job');
