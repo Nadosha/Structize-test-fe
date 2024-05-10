@@ -1,0 +1,58 @@
+@use '../../../../styles/_variables.scss' as style;
+
+.classList {
+  display: flex;
+  flex-direction: column;
+}
+
+.classListHeader {
+  display: flex;
+  height: 56px;
+  padding: 15px 24px;
+  align-items: center;
+  margin-bottom: 32px;
+
+  & button {
+    margin-left: auto;
+    margin-right: 0;
+    padding-top: 0;
+    color: style.$main-blue;
+    font-weight: 600;
+    text-decoration: none;
+  }
+}
+
+.classListItem {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid style.$neutral-10;
+  align-items: center;
+  padding: 24px;
+
+  &:hover {
+    background: style.$neutral-10;
+    cursor: pointer;
+  }
+
+  & * {
+    margin: 1px;
+  }
+
+  p {
+    font-weight: 500;
+    color: style.$neutral-20;
+  }
+
+  strong {
+    color: style.$base-black;
+  }
+
+  i {
+    margin-left: auto;
+    margin-right: 0;
+    font-size: 32px;
+    color: style.$main-blue;
+    align-self: start;
+    margin-top: -13px;
+  }
+}

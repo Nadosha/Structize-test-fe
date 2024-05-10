@@ -1,0 +1,48 @@
+@use '../../../../styles/_variables.scss' as style;
+
+.classItemHeader {
+  display: flex;
+  padding: 0 0 15px;
+  align-items: start;
+  margin-bottom: 32px;
+  border-bottom: 1px solid style.$neutral-30;
+  height: 100px;
+}
+
+.classItemHeaderTitle {
+  & h1 {
+    margin: 0;
+  }
+
+  & p {
+    color: style.$neutral-20;
+  }
+
+  & strong {
+    color: style.$base-black;
+  }
+}
+
+.classItemContent {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.classItemFooter {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  margin-top: auto;
+
+  .buttonGroup {
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
+
+.addStudent {
+  color: style.$main-blue;
+  font-weight: 500;
+}

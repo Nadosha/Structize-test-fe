@@ -1,0 +1,37 @@
+@use '../../../styles/_variables.scss' as style;
+.drawerHeader {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding: 24px 10px;
+  border-bottom: 1px solid style.$neutral-20;
+
+  .drawerHeaderTitle {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 26px;
+  }
+  p {
+    font-weight: 600;
+    color: style.$neutral-20;
+    margin: 0;
+  }
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.drawerFooter {
+  display: flex;
+  align-self: end;
+  justify-self: end;
+  margin-top: auto;
+}

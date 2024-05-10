@@ -1,0 +1,25 @@
+@use '../../../styles/_variables' as style;
+
+.sidebar {
+  flex: 0 1 21.41%;
+  height: 100%;
+  background: style.$base-white;
+  color: style.$base-black;
+  max-width: 507px;
+
+  & img {
+    display: block;
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto;
+  }
+}
+
+.text-lg {
+  font-weight: 600;
+  color: style.$base-black;
+
+  & em {
+    color: style.$error;
+  }
+}

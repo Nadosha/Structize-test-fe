@@ -1,0 +1,192 @@
+@use '_variables.scss' as style;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: style.$neutral-10;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 48px;
+  text-align: left;
+  color: style.$base-black;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+  text-align: left;
+}
+
+p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: left;
+  color: style.$base-black;
+}
+
+.full-height {
+  min-height: 100%;
+}
+
+.offcanvas {
+  width: 626px;
+  & div {
+    background: style.$base-white;
+  }
+}
+
+.offcanvas::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -99999;
+  backdrop-filter: blur(5px);
+}
+
+.offcanvas.show::after {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.btn-link,
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+li {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+label {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: style.$base-black;
+  margin-bottom: 8px;
+}
+
+.circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: style.$base-black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  i {
+    color: #ffffff;
+    font-size: 24px;
+  }
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  padding: 24px;
+  background: style.$neutral-10;
+}
+
+.form-control-plaintext {
+  height: 56px;
+  background-color: style.$base-white;
+  border: 1px solid style.$input-border-color;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.form-select {
+  height: 56px;
+  border: 1px solid style.$input-border-color;
+  border-radius: 10px;
+}
+
+.table {
+  --bs-table-bg: transparent;
+  & th {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: style.$neutral-30;
+  }
+}
+
+.form-check-input {
+  width: 56px !important;
+  height: 32px;
+  margin-left: auto;
+  margin-right: 0;
+
+  &:checked {
+    background-color: style.$success;
+    border-color: style.$success;
+  }
+}
+
+.react-datepicker-wrapper {
+  width: 100% !important;
+}
+
+.grade {
+  width: 200px;
+  height: 48px;
+  border-radius: 300px;
+
+  .input-group-text {
+    background-color: style.$base-white;
+    border-radius: 300px;
+    height: 48px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: style.$select-border-input;
+    border-right: none;
+    color: style.$neutral-20;
+  }
+
+  .form-select {
+    background-color: style.$base-white;
+    border-radius: 300px;
+    height: 48px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: style.$select-border-input;
+    border-left: none;
+  }
+}
+
+.form-check-input:hover {
+  cursor: pointer;
+}
+
+.text-lg {
+  font-size: 23px;
+  font-weight: 600;
+  color: style.$base-black;
+  text-align: center;
+
+  & em {
+    color: style.$error;
+  }
+}
